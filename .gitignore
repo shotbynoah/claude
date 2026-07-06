@@ -42,3 +42,4 @@ next-env.d.ts
 
 # graded photo outputs (private user images)
 graded/
+graded_v2/
