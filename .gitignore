@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# graded photo outputs (private user images)
+graded/
+graded_v2/
+graded_v3/
+graded_v4/
