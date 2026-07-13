@@ -219,7 +219,7 @@ export default function HomePage() {
                 className="text-2xl md:text-3xl font-bold italic text-white leading-tight"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
-                "Every mind deserves to be understood — not fixed."
+                &ldquo;Every mind deserves to be understood — not fixed.&rdquo;
               </p>
               <span className="mt-3 text-sm text-white/40">Total Spectrum Philosophy</span>
             </motion.div>
@@ -447,7 +447,7 @@ export default function HomePage() {
                   className="text-6xl leading-none block mb-4"
                   style={{ color: '#C9956C', fontFamily: "'Playfair Display', serif", opacity: 0.5 }}
                 >
-                  "
+                  &ldquo;
                 </span>
                 <p className="text-white/80 italic leading-relaxed text-base mb-6">
                   {t.quote}
