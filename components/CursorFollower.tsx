@@ -1,11 +1,21 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 import { motion, useSpring, useMotionValue } from 'framer-motion'
+
+function subscribeToHoverCapability(callback: () => void) {
+  const mql = window.matchMedia('(hover: none)')
+  mql.addEventListener('change', callback)
+  return () => mql.removeEventListener('change', callback)
+}
 
 export default function CursorFollower() {
   const [isHovering, setIsHovering] = useState(false)
-  const [isTouchDevice, setIsTouchDevice] = useState(false)
+  const isTouchDevice = useSyncExternalStore(
+    subscribeToHoverCapability,
+    () => window.matchMedia('(hover: none)').matches,
+    () => true
+  )
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -17,10 +27,7 @@ export default function CursorFollower() {
   const ringY = useSpring(mouseY, { stiffness: 200, damping: 30 })
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches) {
-      setIsTouchDevice(true)
-      return
-    }
+    if (isTouchDevice) return
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX)
@@ -43,7 +50,7 @@ export default function CursorFollower() {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseover', handleMouseOver)
     }
-  }, [mouseX, mouseY])
+  }, [mouseX, mouseY, isTouchDevice])
 
   if (isTouchDevice) return null
 
@@ -70,7 +77,7 @@ export default function CursorFollower() {
         style={{ x: ringX, y: ringY, translateX: '-50%', translateY: '-50%' }}
       >
         <motion.div
-          className="rounded-full border border-clay/60"
+          className="rounded-full border border-ember/60"
           animate={{
             width: isHovering ? 52 : 36,
             height: isHovering ? 52 : 36,
