@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
+import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -7,9 +7,9 @@ import SmoothScroll from '@/components/SmoothScroll'
 import CursorFollower from '@/components/CursorFollower'
 import PageTransition from '@/components/PageTransition'
 
-const playfair = Playfair_Display({
+const grotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-grotesk',
   display: 'swap',
 })
 
@@ -20,13 +20,14 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Total Spectrum Counseling — Therapy & Wellness',
-  description: 'Compassionate, neurodiversity-affirming therapy for individuals, couples, and families. Every mind deserves to be understood.',
+  title: 'SHOT BY NOAH — Noah Kissinger, Photographer',
+  description:
+    'Portfolio of Noah Kissinger. Portraits, events, editorial, and street photography.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${grotesk.variable} ${inter.variable}`}>
       <body>
         <div className="grain-overlay" />
         <CursorFollower />

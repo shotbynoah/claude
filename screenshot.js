@@ -10,7 +10,7 @@ const { chromium } = require('playwright-core');
   const pages = [
     { url: 'http://localhost:3000', file: '/tmp/home.png' },
     { url: 'http://localhost:3000/about', file: '/tmp/about.png' },
-    { url: 'http://localhost:3000/services', file: '/tmp/services.png' },
+    { url: 'http://localhost:3000/work', file: '/tmp/work.png' },
     { url: 'http://localhost:3000/contact', file: '/tmp/contact.png' },
   ];
 

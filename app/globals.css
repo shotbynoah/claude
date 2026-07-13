@@ -1,29 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ivory: #FAF7F2;
-  --color-sage-light: #C8D5C0;
-  --color-sage: #8FA888;
-  --color-sage-dark: #5C7A5E;
-  --color-charcoal-light: #4A4A4A;
-  --color-charcoal: #2A2A2A;
-  --color-charcoal-dark: #1A1A1A;
-  --color-clay-light: #E8C4A8;
-  --color-clay: #C9956C;
-  --color-clay-dark: #9B6B45;
-  --color-dusty-blue-light: #B8C9D4;
-  --color-dusty-blue: #7A9BAE;
-  --color-dusty-blue-dark: #4D7A91;
-  --color-cream: #F5F0E8;
-  --color-warm-white: #FEFCF8;
+  --color-ink: #0A0A0A;
+  --color-ink-soft: #141414;
+  --color-ink-raised: #1C1C1C;
+  --color-bone: #EDEAE4;
+  --color-bone-dim: #A8A49C;
+  --color-ember: #FF6B2C;
+  --color-ember-deep: #D4491A;
 
-  --font-playfair: 'Playfair Display', serif;
+  --font-grotesk: 'Space Grotesk', sans-serif;
   --font-inter: 'Inter', sans-serif;
 }
 
 :root {
-  --background: #FAF7F2;
-  --foreground: #2A2A2A;
+  --background: #0A0A0A;
+  --foreground: #EDEAE4;
 }
 
 * {
@@ -44,7 +36,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Hide default cursor */
+/* Hide default cursor (custom cursor follower takes over) */
 *, *::before, *::after {
   cursor: none !important;
 }
@@ -54,14 +46,19 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #1A1A1A;
+  background: #0A0A0A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C9956C;
+  background: #FF6B2C;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8FA888;
+  background: #EDEAE4;
+}
+
+::selection {
+  background: #FF6B2C;
+  color: #0A0A0A;
 }
 
 /* Grain texture overlay */
@@ -73,119 +70,54 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 9998;
-  opacity: 0.035;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
-/* Glass morphism utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+/* Display type */
+.display-type {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  text-transform: uppercase;
 }
 
-.glass-dark {
-  background: rgba(26, 26, 26, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Outlined display text */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(237, 234, 228, 0.6);
 }
 
-.glass-light {
-  background: rgba(250, 247, 242, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-
-/* Keyframe animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-18px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes orb-drift {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.05); }
-  66% { transform: translate(-20px, 15px) scale(0.98); }
-  100% { transform: translate(0px, 0px) scale(1); }
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  will-change: transform;
 }
 
 @keyframes scroll-bounce {
   0%, 100% { transform: translateY(0); opacity: 1; }
   50% { transform: translateY(6px); opacity: 0.5; }
 }
-
-/* Utility animation classes */
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-  will-change: transform;
-}
-.animate-float-delay {
-  animation: float 6s ease-in-out 2s infinite;
-  will-change: transform;
-}
-.animate-float-slow {
-  animation: float 9s ease-in-out 1s infinite;
-  will-change: transform;
-}
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-.animate-gradient-shift {
-  animation: gradient-shift 8s ease-in-out infinite;
-  background-size: 200% 200%;
-}
-.animate-orb-drift {
-  animation: orb-drift 15s ease-in-out infinite;
-  will-change: transform;
-}
 .animate-scroll-bounce {
   animation: scroll-bounce 2s ease-in-out infinite;
 }
 
-/* Gradient text utility */
-.gradient-text-clay {
-  background: linear-gradient(135deg, #C9956C, #E8C4A8, #9B6B45);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-sage {
-  background: linear-gradient(135deg, #5C7A5E, #8FA888, #C8D5C0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Animated gradient border */
-.gradient-border {
-  position: relative;
-  background: linear-gradient(#2A2A2A, #2A2A2A) padding-box,
-    linear-gradient(135deg, #C9956C, #8FA888, #7A9BAE, #C9956C) border-box;
-  border: 2px solid transparent;
-  background-size: 200% 200%;
-  animation: gradient-shift 4s ease infinite;
+/* Photo placeholder grain — heavier than page grain */
+.frame-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  pointer-events: none;
 }
 
 /* Will-change for GPU acceleration */

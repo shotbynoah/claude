@@ -77,7 +77,7 @@ export default function CursorFollower() {
         style={{ x: ringX, y: ringY, translateX: '-50%', translateY: '-50%' }}
       >
         <motion.div
-          className="rounded-full border border-clay/60"
+          className="rounded-full border border-ember/60"
           animate={{
             width: isHovering ? 52 : 36,
             height: isHovering ? 52 : 36,
