@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — SBN MEDIA</title>
+<meta name="description" content="Selected video and photography work by Noah Kissinger / SBN Media.">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Inlined from style.css so this page renders standalone in preview sandboxes. */
+:root{--bg:#ffffff;--ink:#0b0b0c;--ink-dim:#6f6f74;--line:#e8e8e6;--panel:#f2f2ef;--maxw:1200px;--pad:clamp(20px,5vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.site-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:15px var(--pad);border-bottom:1px solid var(--line);background:var(--bg)}
+.site-nav{justify-self:start;display:flex;gap:clamp(16px,2.6vw,32px)}
+.site-nav a{color:var(--ink-dim);font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:color .25s ease;padding-bottom:2px}
+.site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--ink)}
+.brand{justify-self:center;display:flex;align-items:center;gap:10px}
+.brand img{height:34px;width:auto}
+.brand .wordmark{font-size:13px;font-weight:600;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase}
+.site-footer{display:flex;justify-content:center;gap:clamp(20px,4vw,36px);padding:clamp(18px,3vw,28px) var(--pad);font-size:11px;letter-spacing:.2em;text-transform:uppercase;border-top:1px solid var(--line)}
+.site-footer a{color:var(--ink-dim);transition:color .25s ease}
+.site-footer a:hover{color:var(--ink)}
+.section{padding:clamp(48px,8vw,96px) var(--pad);max-width:var(--maxw);margin:0 auto}
+.section-label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:clamp(22px,3vw,36px)}
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,20px)}
+.work-item{position:relative;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.work-item.photo{aspect-ratio:4/5}
+.work-item img,.work-item video{width:100%;height:100%;object-fit:cover}
+.work-item .placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--ink-dim);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.span-2{grid-column:1/-1;aspect-ratio:21/9}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:clamp(8px,1vw,14px)}
+.gallery .work-item{aspect-ratio:4/5}
+.gallery .work-item.wide{grid-column:span 2;aspect-ratio:16/9}
+.reel-feature{display:flex;justify-content:center;margin-bottom:clamp(20px,3vw,40px)}
+.reel-feature video{max-height:78svh;width:auto;max-width:100%;border:1px solid var(--line);background:#000}
+.video-masonry{column-count:2;column-gap:clamp(8px,1vw,14px)}
+@media (max-width:560px){.video-masonry{column-count:1}}
+.clip{break-inside:avoid;margin:0 0 clamp(8px,1vw,14px)}
+.clip video{width:100%;height:auto;display:block;background:#000;border:1px solid var(--line)}
+.clip .cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);margin-top:8px}
+@media (max-width:520px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.clients-band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:clamp(10px,1.4vw,18px);max-width:960px;margin:0 auto}
+.logo-grid .logo{aspect-ratio:5/3;border:1px solid var(--line);background:#fff;overflow:hidden}
+.logo-grid .logo img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:520px){.logo-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.site-header{grid-template-columns:1fr;justify-items:center;gap:12px;text-align:center}.site-nav{justify-self:center}.brand{order:-1}}
+@media (max-width:720px){.work-grid{grid-template-columns:1fr}.work-item,.span-2{aspect-ratio:16/9}}
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="work.html" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+    </nav>
+    <a class="brand" href="index.html" aria-label="SBN Media home">
+      <img src="assets/logo-black.png" alt="SBN Media">
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ===== VIDEO ===== -->
+    <section class="section" id="video">
+      <div class="section-label">Video</div>
+      <!-- Featured sizzle reel (vertical) -->
+      <div class="reel-feature">
+        <video controls loop playsinline poster="poster.jpg">
+          <source src="reel.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Mixed-aspect clips keep their native shape (masonry). preload=metadata so they
+           don't all download until played. Add more: copy a .clip block, drop the mp4 in clips/. -->
+      <div class="video-masonry">
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/anta-pov.jpg"><source src="clips/anta-pov.mp4" type="video/mp4"></video></article>
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/doghours-anta.jpg"><source src="clips/doghours-anta.mp4" type="video/mp4"></video></article>
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/hometown-favorites.jpg"><source src="clips/hometown-favorites.mp4" type="video/mp4"></video></article>
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/jqb-sesh.jpg"><source src="clips/jqb-sesh.mp4" type="video/mp4"></video></article>
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/boxing.jpg"><source src="clips/boxing.mp4" type="video/mp4"></video></article>
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/calpoly-hoops.jpg"><source src="clips/calpoly-hoops.mp4" type="video/mp4"></video></article>
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/hc-track.jpg"><source src="clips/hc-track.mp4" type="video/mp4"></video></article>
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/ig.jpg"><source src="clips/ig.mp4" type="video/mp4"></video></article>
+        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/calpoly-practice.jpg"><source src="clips/calpoly-practice.mp4" type="video/mp4"></video></article>
+      </div>
+    </section>
+
+    <!-- ===== PHOTO ===== -->
+    <section class="section" id="photo">
+      <div class="section-label">Photo</div>
+      <div class="gallery">
+        <!-- Basketball set — St. Joseph + MADE Hoops circuit (newest work, leads) -->
+        <article class="work-item"><img src="photos/sj-drive.jpg" alt="St. Joseph guard driving the lane" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sj-dunk.jpg" alt="Dunk at the rim" loading="lazy"></article>
+        <article class="work-item wide"><img src="photos/made-net.jpg" alt="Ball dropping through the net" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sj-hustle.jpg" alt="Loose-ball hustle play" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sj-flex.jpg" alt="Player flexing to the crowd" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sj-dunkbw.jpg" alt="Dunk, black and white" loading="lazy"></article>
+        <article class="work-item"><img src="photos/made-portrait.jpg" alt="Player portrait courtside" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sj-walk.jpg" alt="Player alone on the court" loading="lazy"></article>
+        <article class="work-item"><img src="photos/made-handler.jpg" alt="Ball-handler surveying the floor" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sj-bench.jpg" alt="Player on the bench" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sj-celebrate.jpg" alt="Celebration" loading="lazy"></article>
+        <article class="work-item"><img src="photos/made-drivebw.jpg" alt="Baseline drive, black and white" loading="lazy"></article>
+        <!-- Earlier sports set -->
+        <article class="work-item"><img src="photos/sport-1.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-2.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-3.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-4.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-5.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-6.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-7.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-8.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-9.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-10.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-11.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-12.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-13.jpg" alt="Sports photography" loading="lazy"></article>
+        <article class="work-item"><img src="photos/sport-14.jpg" alt="Sports photography" loading="lazy"></article>
+        <!-- Wedding coda -->
+        <article class="work-item"><img src="photos/wedding-1.jpg" alt="Wedding photography" loading="lazy"></article>
+        <article class="work-item wide"><img src="photos/wedding-3.jpg" alt="Wedding — ring and bouquet detail" loading="lazy"></article>
+        <article class="work-item"><img src="photos/wedding-2.jpg" alt="Wedding photography" loading="lazy"></article>
+        <!-- Add more: drop optimized JPEGs in photos/ and copy a line above.
+             Keep sports together, then weddings. Use class "work-item wide" for a double-width tile. -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://instagram.com/shot.bynoah" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:noah@bysbn.com">Email</a>
+    <a href="https://www.linkedin.com/in/noah-kissinger-49454b2a2" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+</body>
+</html>

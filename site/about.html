@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — SBN MEDIA</title>
+<meta name="description" content="About Noah Kissinger / SBN Media.">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Inlined from style.css so this page renders standalone in preview sandboxes. */
+:root{--bg:#ffffff;--ink:#0b0b0c;--ink-dim:#6f6f74;--line:#e8e8e6;--panel:#f2f2ef;--maxw:1200px;--pad:clamp(20px,5vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.site-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:15px var(--pad);border-bottom:1px solid var(--line);background:var(--bg)}
+.site-nav{justify-self:start;display:flex;gap:clamp(16px,2.6vw,32px)}
+.site-nav a{color:var(--ink-dim);font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:color .25s ease;padding-bottom:2px}
+.site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--ink)}
+.brand{justify-self:center;display:flex;align-items:center;gap:10px}
+.brand img{height:34px;width:auto}
+.brand .wordmark{font-size:13px;font-weight:600;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase}
+.site-footer{display:flex;justify-content:center;gap:clamp(20px,4vw,36px);padding:clamp(18px,3vw,28px) var(--pad);font-size:11px;letter-spacing:.2em;text-transform:uppercase;border-top:1px solid var(--line)}
+.site-footer a{color:var(--ink-dim);transition:color .25s ease}
+.site-footer a:hover{color:var(--ink)}
+.section{padding:clamp(48px,8vw,96px) var(--pad);max-width:var(--maxw);margin:0 auto}
+.about-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.about-grid .portrait{aspect-ratio:4/5;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.about-grid .portrait img{width:100%;height:100%;object-fit:cover}
+.about-copy p{color:var(--ink-dim);max-width:46ch;margin-bottom:1.1em}
+.about-copy p strong{color:var(--ink);font-weight:500}
+.about-copy .contact{margin-top:clamp(20px,3vw,32px);font-size:13px;letter-spacing:.16em;text-transform:uppercase;display:flex;gap:clamp(18px,3vw,28px);flex-wrap:wrap}
+.about-copy .contact a{border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .25s ease}
+.about-copy .contact a:hover{border-color:var(--ink)}
+@media (max-width:640px){.site-header{grid-template-columns:1fr;justify-items:center;gap:12px;text-align:center}.site-nav{justify-self:center}.brand{order:-1}}
+@media (max-width:720px){.about-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+    </nav>
+    <a class="brand" href="index.html" aria-label="SBN Media home">
+      <img src="assets/logo-black.png" alt="SBN Media">
+    </a>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="about-grid">
+
+        <div class="portrait">
+          <img src="photos/portrait.jpg" alt="Noah Kissinger — SBN Media">
+        </div>
+
+        <div class="about-copy">
+          <p><strong>I'm Noah Kissinger, a videographer and photographer on California's Central
+          Coast, and the founder of SBN Media.</strong></p>
+          <p>Most of what I shoot moves fast. Sports, weddings, brands that need to look alive.
+          You get one shot at the moment, and catching it is the part I've gotten good at. The edit
+          is where I make it land.</p>
+          <p>SBN Media is where I take it past the camera. I run paid ads and strategy too, so the
+          footage earns its keep instead of sitting on a drive.</p>
+          <p>Got something worth shooting? Let's talk.</p>
+          <div class="contact">
+            <a href="mailto:noah@bysbn.com">noah@bysbn.com</a>
+            <a href="https://instagram.com/shot.bynoah" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/in/noah-kissinger-49454b2a2" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://instagram.com/shot.bynoah" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:noah@bysbn.com">Email</a>
+    <a href="https://www.linkedin.com/in/noah-kissinger-49454b2a2" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+</body>
+</html>

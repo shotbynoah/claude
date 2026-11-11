@@ -1,0 +1,173 @@
+/* SBN MEDIA — shared stylesheet (source of truth).
+   Light portfolio (reference: tomasgomez.art): WHITE page, near-black text,
+   top nav (links left, logo centered) + full-bleed hero reel with name/roles overlay.
+   NOTE: also inlined into each HTML file's <style> block for standalone preview. */
+
+:root {
+  --bg: #ffffff;
+  --ink: #0b0b0c;
+  --ink-dim: #6f6f74;
+  --line: #e8e8e6;
+  --panel: #f2f2ef;
+  --maxw: 1200px;
+  --pad: clamp(20px, 5vw, 64px);
+  --headerH: 70px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+img, video { display: block; max-width: 100%; }
+
+/* ---------- header / nav (links left, logo centered) ---------- */
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 15px var(--pad);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.site-nav { justify-self: start; display: flex; gap: clamp(16px, 2.6vw, 32px); }
+.site-nav a {
+  color: var(--ink-dim); font-size: 13px; letter-spacing: 0.14em;
+  text-transform: uppercase; transition: color 0.25s ease; padding-bottom: 2px;
+}
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); }
+.brand { justify-self: center; display: flex; align-items: center; gap: 10px; }
+.brand img { height: 34px; width: auto; }
+.brand .wordmark {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.34em;
+  text-indent: 0.34em; text-transform: uppercase;
+}
+
+/* ---------- hero (full-bleed reel + name/roles overlay) ---------- */
+.hero {
+  position: relative;
+  height: calc(100svh - var(--headerH));
+  min-height: 440px;
+  background: #0b0b0c;
+  overflow: hidden;
+}
+.hero .bg-video {             /* same reel, blurred + darkened, fills the sides; JS-synced to .fg */
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  filter: blur(22px) brightness(0.5);
+  transform: scale(1.14);
+}
+.hero video.fg {              /* vertical reel shown whole (native aspect), centered */
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  max-width: 100%; max-height: 100%; width: auto; height: auto;
+  z-index: 1;
+}
+.hero::after {                /* scrim so white text reads over the footage */
+  content: ""; position: absolute; inset: 0; z-index: 2;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.15) 0%, rgba(0,0,0,.5) 100%);
+}
+.hero .overlay {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 0 var(--pad); pointer-events: none;
+  color: #fff;
+  opacity: 0;
+  animation: heroIn 0.9s ease 1s both;   /* fade up ~1s after load */
+}
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero h1 {
+  font-size: clamp(26px, 5vw, 64px);
+  font-weight: 600; line-height: 1; letter-spacing: -0.01em; text-transform: uppercase;
+  text-shadow: 0 1px 30px rgba(0,0,0,.35);
+}
+.hero .roles {
+  margin-top: clamp(12px, 1.6vw, 18px);
+  font-size: clamp(10px, 1.2vw, 14px);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  text-shadow: 0 1px 20px rgba(0,0,0,.4);
+}
+.hero .roles span { opacity: 0.6; margin: 0 0.5em; }
+
+/* ---------- footer ---------- */
+.site-footer {
+  display: flex; justify-content: center; gap: clamp(20px, 4vw, 36px);
+  padding: clamp(18px, 3vw, 28px) var(--pad);
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  border-top: 1px solid var(--line);
+}
+.site-footer a { color: var(--ink-dim); transition: color 0.25s ease; }
+.site-footer a:hover { color: var(--ink); }
+
+/* ---------- generic sections ---------- */
+.section { padding: clamp(48px, 8vw, 96px) var(--pad); max-width: var(--maxw); margin: 0 auto; }
+.section-label {
+  font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--ink-dim); margin-bottom: clamp(22px, 3vw, 36px);
+}
+
+/* ---------- work grid ---------- */
+.work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(12px, 1.6vw, 20px); }
+.work-item { position: relative; aspect-ratio: 16 / 9; background: var(--panel); border: 1px solid var(--line); overflow: hidden; }
+.work-item.photo { aspect-ratio: 4 / 5; }
+.work-item img, .work-item video { width: 100%; height: 100%; object-fit: cover; }
+.work-item .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--ink-dim); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; }
+.span-2 { grid-column: 1 / -1; aspect-ratio: 21 / 9; }
+
+/* ---------- dense gallery (for lots of photos) ---------- */
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: clamp(8px, 1vw, 14px); }
+.gallery .work-item { aspect-ratio: 4 / 5; }
+.gallery .work-item.wide { grid-column: span 2; aspect-ratio: 16 / 9; }
+@media (max-width: 520px) { .gallery { grid-template-columns: repeat(2, 1fr); } .gallery .work-item.wide { grid-column: span 2; } }
+
+/* ---------- vertical reel feature (Video page) ---------- */
+.reel-feature { display: flex; justify-content: center; margin-bottom: clamp(20px, 3vw, 40px); }
+.reel-feature video { max-height: 78svh; width: auto; max-width: 100%; border: 1px solid var(--line); background: #000; }
+
+/* ---------- video masonry (mixed-aspect clips, native shape) ---------- */
+.video-masonry { column-count: 2; column-gap: clamp(8px, 1vw, 14px); }
+@media (max-width: 560px) { .video-masonry { column-count: 1; } }
+.clip { break-inside: avoid; margin: 0 0 clamp(8px, 1vw, 14px); }
+.clip video { width: 100%; height: auto; display: block; background: #000; border: 1px solid var(--line); }
+.clip .cap { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); margin-top: 8px; }
+
+/* ---------- clients band ---------- */
+.clients-band { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: clamp(10px, 1.4vw, 18px); max-width: 960px; margin: 0 auto; }
+.logo-grid .logo { aspect-ratio: 5 / 3; border: 1px solid var(--line); background: #fff; overflow: hidden; }
+.logo-grid .logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 520px) { .logo-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- about ---------- */
+.about-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.about-grid .portrait { aspect-ratio: 4 / 5; background: var(--panel); border: 1px solid var(--line); overflow: hidden; }
+.about-grid .portrait img { width: 100%; height: 100%; object-fit: cover; }
+.about-copy p { color: var(--ink-dim); max-width: 46ch; margin-bottom: 1.1em; }
+.about-copy p strong { color: var(--ink); font-weight: 500; }
+.about-copy .contact { margin-top: clamp(20px, 3vw, 32px); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; display: flex; gap: clamp(18px, 3vw, 28px); flex-wrap: wrap; }
+.about-copy .contact a { border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color 0.25s ease; }
+.about-copy .contact a:hover { border-color: var(--ink); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 640px) {
+  .site-header { grid-template-columns: 1fr; justify-items: center; gap: 12px; text-align: center; }
+  .site-nav { justify-self: center; }
+  .brand { order: -1; }
+}
+@media (max-width: 720px) {
+  .work-grid { grid-template-columns: 1fr; }
+  .work-item, .span-2 { aspect-ratio: 16 / 9; }
+  .about-grid { grid-template-columns: 1fr; }
+}
