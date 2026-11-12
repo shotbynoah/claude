@@ -54,7 +54,10 @@ img,video{display:block;max-width:100%}
 @media (max-width:520px){.logo-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.site-header{grid-template-columns:1fr;justify-items:center;gap:12px;text-align:center}.site-nav{justify-self:center}.brand{order:-1}}
 @media (max-width:720px){.work-grid{grid-template-columns:1fr}.work-item,.span-2{aspect-ratio:16/9}}
+/* work page */
+.sr-only{position: absolute;width: 1px;height: 1px;overflow: hidden;clip: rect(0 0 0 0);white-space: nowrap}.work{max-width: 1280px;margin: 0 auto;padding: clamp(20px,3vw,36px) clamp(16px,2.2vw,32px) clamp(40px,6vw,80px)}.work-filter{display: flex;gap: clamp(18px,2.4vw,28px);margin-bottom: clamp(14px,2vw,22px)}.work-filter a{font-size: 11px;letter-spacing: .18em;text-transform: uppercase;color: var(--ink-dim);padding-bottom: 3px;border-bottom: 1px solid transparent;transition: color .25s ease,border-color .25s ease}.work-filter a:hover{color: var(--ink)}.work-filter a[aria-current="true"]{color: var(--ink);border-bottom-color: var(--ink)}.mosaic{display: flex;align-items: flex-start;gap: 0}.mosaic-col{flex: 1 1 0;min-width: 0}.mosaic:not(.ready){display: block;column-count: 2;column-gap: 0}.mosaic:not(.ready) .tile{break-inside: avoid}@media (min-width: 720px){.mosaic:not(.ready){column-count: 3}}@media (min-width: 1100px){.mosaic:not(.ready){column-count: 4}}.tile{position: relative;display: block;width: 100%;padding: 0;margin: 0;border: 0;background: var(--panel);overflow: hidden;cursor: pointer;text-align: left;font: inherit;color: inherit}.tile img{display: block;width: 100%;height: auto;transition: transform .9s cubic-bezier(0,0,.2,1)}.tile:hover img,.tile:focus-visible img{transform: scale(1.02)}.tile:focus-visible{outline: 2px solid var(--ink);outline-offset: -2px}.tile .play{position: absolute;top: 10px;right: 10px;width: 26px;height: 26px;border-radius: 50%;background: rgba(11,11,12,.55);backdrop-filter: blur(4px);-webkit-backdrop-filter: blur(4px);pointer-events: none}.tile .play::after{content: "";position: absolute;left: 10px;top: 7px;border-left: 8px solid #fff;border-top: 6px solid transparent;border-bottom: 6px solid transparent}.js .tile{opacity: 0;transform: translateY(10px);transition: opacity .6s ease,transform .6s ease}.js .tile.in{opacity: 1;transform: none}@media (prefers-reduced-motion: reduce){.js .tile{opacity: 1;transform: none;transition: none}.tile img{transition: none}}.lb{position: fixed;inset: 0;z-index: 50;background: #fff;display: flex;align-items: center;justify-content: center}.lb[hidden]{display: none}.lb-stage{max-width: min(92vw,1100px);max-height: calc(100svh - 120px);display: flex;align-items: center;justify-content: center}.lb-stage img,.lb-stage video{max-width: 100%;max-height: calc(100svh - 120px);width: auto;height: auto;background: #000}.lb-stage img{background: transparent}.lb-close,.lb-nav{position: absolute;background: none;border: 0;cursor: pointer;font: inherit;color: var(--ink-dim);font-size: 11px;letter-spacing: .18em;text-transform: uppercase;transition: color .2s ease}.lb-close:hover,.lb-nav:hover{color: var(--ink)}.lb-close{top: 20px;right: clamp(16px,3vw,32px);padding: 8px}.lb-nav{top: 50%;transform: translateY(-50%);font-size: 22px;letter-spacing: 0;padding: 16px}.lb-prev{left: clamp(4px,2vw,24px)}.lb-next{right: clamp(4px,2vw,24px)}.lb-meta{position: absolute;left: 0;right: 0;bottom: 20px;display: flex;justify-content: center;gap: 14px;font-size: 10px;letter-spacing: .06em;text-transform: uppercase}.lb-count{color: var(--ink-dim)}body.lb-open{overflow: hidden}
 </style>
+<script>document.documentElement.className+=" js"</script>
 </head>
 <body>
 
@@ -69,74 +72,68 @@ img,video{display:block;max-width:100%}
     </a>
   </header>
 
-  <main>
+  <main class="work">
+    <h1 class="sr-only">Work</h1>
 
-    <!-- ===== VIDEO ===== -->
-    <section class="section" id="video">
-      <div class="section-label">Video</div>
-      <!-- Featured sizzle reel (vertical) -->
-      <div class="reel-feature">
-        <video controls loop playsinline poster="poster.jpg">
-          <source src="reel.mp4" type="video/mp4">
-        </video>
-      </div>
-      <!-- Mixed-aspect clips keep their native shape (masonry). preload=metadata so they
-           don't all download until played. Add more: copy a .clip block, drop the mp4 in clips/. -->
-      <div class="video-masonry">
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/anta-pov.jpg"><source src="clips/anta-pov.mp4" type="video/mp4"></video></article>
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/doghours-anta.jpg"><source src="clips/doghours-anta.mp4" type="video/mp4"></video></article>
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/hometown-favorites.jpg"><source src="clips/hometown-favorites.mp4" type="video/mp4"></video></article>
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/jqb-sesh.jpg"><source src="clips/jqb-sesh.mp4" type="video/mp4"></video></article>
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/boxing.jpg"><source src="clips/boxing.mp4" type="video/mp4"></video></article>
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/calpoly-hoops.jpg"><source src="clips/calpoly-hoops.mp4" type="video/mp4"></video></article>
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/hc-track.jpg"><source src="clips/hc-track.mp4" type="video/mp4"></video></article>
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/ig.jpg"><source src="clips/ig.mp4" type="video/mp4"></video></article>
-        <article class="clip"><video controls loop playsinline preload="metadata" poster="clips/calpoly-practice.jpg"><source src="clips/calpoly-practice.mp4" type="video/mp4"></video></article>
-      </div>
-    </section>
+    <nav class="work-filter" aria-label="Filter work">
+      <a href="#all" data-filter="all">All</a>
+      <a href="#video" data-filter="video">Video</a>
+      <a href="#photo" data-filter="photo">Photo</a>
+    </nav>
 
-    <!-- ===== PHOTO ===== -->
-    <section class="section" id="photo">
-      <div class="section-label">Photo</div>
-      <div class="gallery">
-        <!-- Basketball set — St. Joseph + MADE Hoops circuit (newest work, leads) -->
-        <article class="work-item"><img src="photos/sj-drive.jpg" alt="St. Joseph guard driving the lane" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sj-dunk.jpg" alt="Dunk at the rim" loading="lazy"></article>
-        <article class="work-item wide"><img src="photos/made-net.jpg" alt="Ball dropping through the net" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sj-hustle.jpg" alt="Loose-ball hustle play" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sj-flex.jpg" alt="Player flexing to the crowd" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sj-dunkbw.jpg" alt="Dunk, black and white" loading="lazy"></article>
-        <article class="work-item"><img src="photos/made-portrait.jpg" alt="Player portrait courtside" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sj-walk.jpg" alt="Player alone on the court" loading="lazy"></article>
-        <article class="work-item"><img src="photos/made-handler.jpg" alt="Ball-handler surveying the floor" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sj-bench.jpg" alt="Player on the bench" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sj-celebrate.jpg" alt="Celebration" loading="lazy"></article>
-        <article class="work-item"><img src="photos/made-drivebw.jpg" alt="Baseline drive, black and white" loading="lazy"></article>
-        <!-- Earlier sports set -->
-        <article class="work-item"><img src="photos/sport-1.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-2.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-3.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-4.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-5.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-6.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-7.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-8.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-9.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-10.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-11.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-12.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-13.jpg" alt="Sports photography" loading="lazy"></article>
-        <article class="work-item"><img src="photos/sport-14.jpg" alt="Sports photography" loading="lazy"></article>
-        <!-- Wedding coda -->
-        <article class="work-item"><img src="photos/wedding-1.jpg" alt="Wedding photography" loading="lazy"></article>
-        <article class="work-item wide"><img src="photos/wedding-3.jpg" alt="Wedding — ring and bouquet detail" loading="lazy"></article>
-        <article class="work-item"><img src="photos/wedding-2.jpg" alt="Wedding photography" loading="lazy"></article>
-        <!-- Add more: drop optimized JPEGs in photos/ and copy a line above.
-             Keep sports together, then weddings. Use class "work-item wide" for a double-width tile. -->
-      </div>
-    </section>
-
+    <!-- To add work: copy one <button class="tile"> line, change the file names, and drop the
+         files in clips/ or photos/. Set data-type to "video" or "photo". Video tiles also need data-video="clips/x.mp4".
+         Keep the width/height numbers equal to the image's real pixel size (they set the tile shape). -->
+    <div class="mosaic" id="mosaic">
+        <button type="button" class="tile" data-type="video" data-video="reel.mp4" aria-label="Play video"><img src="poster.jpg" alt="SBN Media sizzle reel" width="1080" height="1350" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sj-drive.jpg" alt="St. Joseph guard driving the lane" width="1600" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sj-dunk.jpg" alt="Dunk at the rim" width="1600" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/made-net.jpg" alt="Ball dropping through the net" width="1600" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/anta-pov.mp4" aria-label="Play video"><img src="clips/anta-pov.jpg" alt="ANTA POV" width="1080" height="1920" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sj-hustle.jpg" alt="Loose-ball hustle play" width="1333" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sj-flex.jpg" alt="Player flexing to the crowd" width="1333" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sj-dunkbw.jpg" alt="Dunk, black and white" width="1600" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/doghours-anta.mp4" aria-label="Play video"><img src="clips/doghours-anta.jpg" alt="Dog Hours — ANTA" width="1080" height="1350" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/made-portrait.jpg" alt="Player portrait courtside" width="1600" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sj-walk.jpg" alt="Player alone on the court" width="1600" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/made-handler.jpg" alt="Ball-handler surveying the floor" width="1333" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/hometown-favorites.mp4" aria-label="Play video"><img src="clips/hometown-favorites.jpg" alt="Hometown Favorites" width="1080" height="1350" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sj-bench.jpg" alt="Player on the bench" width="1333" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sj-celebrate.jpg" alt="Celebration" width="1333" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/made-drivebw.jpg" alt="Baseline drive, black and white" width="1500" height="2000" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/jqb-sesh.mp4" aria-label="Play video"><img src="clips/jqb-sesh.jpg" alt="JQB Sesh" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-1.jpg" alt="Sports photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-2.jpg" alt="Sports photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-3.jpg" alt="Sports photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/boxing.mp4" aria-label="Play video"><img src="clips/boxing.jpg" alt="Boxing" width="640" height="360" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-4.jpg" alt="Sports photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-5.jpg" alt="Sports photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-6.jpg" alt="Sports photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/calpoly-hoops.mp4" aria-label="Play video"><img src="clips/calpoly-hoops.jpg" alt="Cal Poly Hoops" width="640" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-7.jpg" alt="Sports photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-8.jpg" alt="Sports photography" width="1200" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-9.jpg" alt="Sports photography" width="1280" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/hc-track.mp4" aria-label="Play video"><img src="clips/hc-track.jpg" alt="HC Track" width="360" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-10.jpg" alt="Sports photography" width="1280" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-11.jpg" alt="Sports photography" width="1280" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-12.jpg" alt="Sports photography" width="1280" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/ig.mp4" aria-label="Play video"><img src="clips/ig.jpg" alt="IG" width="640" height="360" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-13.jpg" alt="Sports photography" width="1280" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/sport-14.jpg" alt="Sports photography" width="1280" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/wedding-1.jpg" alt="Wedding photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="video" data-video="clips/calpoly-practice.mp4" aria-label="Play video"><img src="clips/calpoly-practice.jpg" alt="Cal Poly Practice" width="512" height="640" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/wedding-3.jpg" alt="Wedding — ring and bouquet detail" width="2000" height="744" loading="lazy" decoding="async"></button>
+        <button type="button" class="tile" data-type="photo" aria-label="Open photo"><img src="photos/wedding-2.jpg" alt="Wedding photography" width="1067" height="1600" loading="lazy" decoding="async"></button>
+    </div>
   </main>
+
+  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Viewer">
+    <button type="button" class="lb-close" aria-label="Close">Close</button>
+    <button type="button" class="lb-nav lb-prev" aria-label="Previous">&#8592;</button>
+    <div class="lb-stage" id="lbStage"></div>
+    <button type="button" class="lb-nav lb-next" aria-label="Next">&#8594;</button>
+    <div class="lb-meta"><span class="lb-count"></span></div>
+  </div>
 
   <footer class="site-footer">
     <a href="https://instagram.com/shot.bynoah" target="_blank" rel="noopener">Instagram</a>
@@ -144,5 +141,99 @@ img,video{display:block;max-width:100%}
     <a href="https://www.linkedin.com/in/noah-kissinger-49454b2a2" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 
+  <script>
+(function () {
+  var grid = document.getElementById('mosaic');
+  var all = [].slice.call(grid.querySelectorAll('.tile'));
+  var links = [].slice.call(document.querySelectorAll('.work-filter a'));
+  var filter = 'all', current = [], idx = 0, lastFocus = null;
+
+  function colCount() { var w = window.innerWidth; return w >= 1100 ? 4 : w >= 720 ? 3 : 2; }
+  function ratio(t) { var i = t.querySelector('img'); return i.getAttribute('height') / i.getAttribute('width'); }
+
+  function layout() {
+    var n = colCount(), cols = [], heights = [];
+    current = all.filter(function (t) { return filter === 'all' || t.getAttribute('data-type') === filter; });
+    all.forEach(function (t) { if (t.parentNode) t.parentNode.removeChild(t); });
+    grid.innerHTML = '';
+    for (var i = 0; i < n; i++) { var c = document.createElement('div'); c.className = 'mosaic-col'; grid.appendChild(c); cols.push(c); heights.push(0); }
+    current.forEach(function (t) {
+      var k = heights.indexOf(Math.min.apply(null, heights));
+      cols[k].appendChild(t); heights[k] += ratio(t);
+    });
+    grid.classList.add('ready');
+    reveal();
+  }
+
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -5% 0px' }) : null;
+  function reveal() {
+    current.forEach(function (t) { if (t.classList.contains('in')) return; if (io) io.observe(t); else t.classList.add('in'); });
+  }
+
+  function applyHash() {
+    var h = (location.hash || '#all').slice(1);
+    filter = (h === 'video' || h === 'photo') ? h : 'all';
+    links.forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('data-filter') === filter ? 'true' : 'false'); });
+    layout();
+  }
+  window.addEventListener('hashchange', applyHash);
+  var lastCols = colCount(), rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () { var n = colCount(); if (n !== lastCols) { lastCols = n; layout(); } }, 150);
+  });
+
+  /* ---------- viewer ---------- */
+  var lb = document.getElementById('lb'), stage = document.getElementById('lbStage'), count = lb.querySelector('.lb-count');
+  function show(i) {
+    idx = (i + current.length) % current.length;
+    var t = current[idx], v = t.getAttribute('data-video'), img = t.querySelector('img');
+    stage.innerHTML = '';
+    var el;
+    if (v) {
+      el = document.createElement('video');
+      el.controls = true; el.autoplay = true; el.loop = true; el.playsInline = true;
+      el.setAttribute('playsinline', ''); el.poster = img.getAttribute('src'); el.src = v;
+    } else {
+      el = document.createElement('img'); el.src = img.getAttribute('src'); el.alt = img.alt;
+    }
+    stage.appendChild(el);
+    count.textContent = (idx + 1) + ' / ' + current.length;
+  }
+  function open(t) {
+    lastFocus = t; show(current.indexOf(t));
+    lb.hidden = false; document.body.classList.add('lb-open');
+    lb.querySelector('.lb-close').focus();
+  }
+  function close() {
+    var v = stage.querySelector('video'); if (v) { v.pause(); v.removeAttribute('src'); v.load(); }
+    stage.innerHTML = ''; lb.hidden = true; document.body.classList.remove('lb-open');
+    if (lastFocus) lastFocus.focus();
+  }
+  grid.addEventListener('click', function (e) { var t = e.target.closest('.tile'); if (t) open(t); });
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
+  lb.querySelector('.lb-next').addEventListener('click', function () { show(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(idx - 1);
+    else if (e.key === 'ArrowRight') show(idx + 1);
+  });
+  var sx = null;
+  lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (sx === null || e.target.closest('video')) { sx = null; return; }
+    var dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
+  });
+
+  applyHash();
+})();
+
+  </script>
 </body>
 </html>
